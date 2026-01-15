@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
+  production: false,
   omdbBaseUrl: 'https://www.omdbapi.com/',
-  apiKey: (window as any)['OMDB_API_KEY']
+  apiKey: 'd67ea4f1'   // TEMPORARY FIX
 };
