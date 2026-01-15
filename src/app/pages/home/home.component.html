@@ -1,0 +1,34 @@
+<div class="home">
+  <!-- Hero Section -->
+  <header class="hero" *ngIf="featured() as f">
+    <div class="hero-bg" [style.backgroundImage]="'url(' + f.Poster + ')'"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content container">
+      <h1 class="hero-title">{{ f.Title }}</h1>
+      <p class="hero-meta">{{ f.Year }} • {{ f.Type | titlecase }}</p>
+      <div class="hero-actions">
+        <a [routerLink]="['/movie', f.imdbID]" class="btn-play">
+          ▶ Play
+        </a>
+        <button class="btn-list">+ My List</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="content-wrapper">
+    <!-- Genre Bar -->
+    <genre-bar [genres]="categories"></genre-bar>
+
+    <!-- Movie Rows -->
+    <div class="rows">
+      <section *ngFor="let cat of categories" class="category-row">
+        <movie-list 
+          [title]="cat" 
+          [items]="data()[cat] || []" 
+          [horizontal]="true">
+        </movie-list>
+      </section>
+    </div>
+  </div>
+</div>

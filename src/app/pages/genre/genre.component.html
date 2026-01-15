@@ -1,0 +1,6 @@
+<div class="genre-page">
+  <h1>{{ genre() }} movies</h1>
+  <movie-list [title]="genre()" [items]="items()"></movie-list>
+  <div class="error" *ngIf="error()">{{ error() }}</div>
+</div>
+

@@ -1,0 +1,6 @@
+<div class="search-page">
+  <h1>Search results for "{{ query() }}"</h1>
+  <movie-list [title]="'Results'" [items]="results()"></movie-list>
+  <div class="error" *ngIf="error()">{{ error() }}</div>
+</div>
+

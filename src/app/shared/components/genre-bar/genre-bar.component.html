@@ -1,0 +1,8 @@
+<div class="genres">
+  <a *ngFor="let g of genres" 
+     [routerLink]="['/genre', g]" 
+     routerLinkActive="active"
+     class="chip">
+    {{ g }}
+  </a>
+</div>

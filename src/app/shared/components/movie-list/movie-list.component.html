@@ -1,0 +1,11 @@
+<section class="section" [class.h]="horizontal">
+  <h2 class="section-title">{{ title }}</h2>
+  <div class="grid" *ngIf="!horizontal">
+    <movie-card *ngFor="let item of items" [item]="item"></movie-card>
+  </div>
+  <div class="rail" *ngIf="horizontal">
+    <div class="rail-inner">
+      <movie-card *ngFor="let item of items" [item]="item"></movie-card>
+    </div>
+  </div>
+</section>

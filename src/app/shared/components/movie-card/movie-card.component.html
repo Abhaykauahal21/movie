@@ -1,0 +1,27 @@
+<div class="card">
+  <a [routerLink]="['/movie', item.imdbID]" class="poster-wrap">
+    <img [lazyImg]="item.Poster !== 'N/A' ? item.Poster : ''" alt="{{ item.Title }}" />
+    <div class="poster-fallback" *ngIf="item.Poster === 'N/A'">{{ item.Title }}</div>
+    <div class="card-gradient"></div>
+    <div class="card-overlay">
+      <div class="overlay-title">{{ item.Title }}</div>
+      <div class="overlay-meta">
+        <span>{{ item.Year }}</span>
+        <span *ngIf="item.imdbRating">• ★ {{ item.imdbRating }}</span>
+      </div>
+    </div>
+  </a>
+  <div class="meta">
+    <div class="title">{{ item.Title }}</div>
+    <div class="year">
+      <span>{{ item.Year }}</span>
+      <span *ngIf="item.imdbRating">• ★ {{ item.imdbRating }}</span>
+    </div>
+    <div class="actors" *ngIf="item.Actors">
+      {{ item.Actors }}
+    </div>
+    <button class="fav" (click)="toggleFavorite()">
+      {{ isFav() ? '★ Remove' : '☆ Favorite' }}
+    </button>
+  </div>
+</div>

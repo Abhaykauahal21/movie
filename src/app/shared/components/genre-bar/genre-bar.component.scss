@@ -1,0 +1,31 @@
+.genres {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.chip {
+  padding: 8px 20px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all var(--duration-normal) var(--ease-soft);
+  border: 1px solid transparent;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+  }
+}

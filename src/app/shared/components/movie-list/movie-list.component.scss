@@ -1,0 +1,63 @@
+.section { 
+  padding: 8px 0 16px; 
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0 16px;
+  color: #e5e5e5;
+  transition: color 0.2s;
+  cursor: pointer;
+  
+  &:hover {
+    color: white;
+  }
+}
+
+.rail {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 20px; /* Space for scrollbar hide or shadows */
+  margin-bottom: -20px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+}
+
+.rail-inner {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(160px, 220px); /* Mobile friendly width */
+  gap: 12px;
+  
+  /* Ensure padding on right so last item isn't cut off */
+  padding-right: 48px;
+  
+  @media (min-width: 768px) {
+    grid-auto-columns: minmax(200px, 260px);
+    gap: 16px;
+  }
+}
+
+/* Vertical Grid Fallback */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}

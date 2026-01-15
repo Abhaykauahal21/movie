@@ -1,0 +1,40 @@
+<div class="details" *ngIf="movie(); else loadingTpl">
+  <div class="details-hero">
+    <div
+      class="hero-backdrop"
+      [style.backgroundImage]="movie()?.Poster && movie()?.Poster !== 'N/A' ? 'url(' + movie()?.Poster + ')' : ''">
+    </div>
+    <div class="hero-gradient"></div>
+    <div class="details-inner container">
+      <div class="details-poster">
+        <img
+          [lazyImg]="movie()?.Poster !== 'N/A' ? movie()?.Poster || '' : ''"
+          alt="{{ movie()?.Title }}"
+        />
+      </div>
+      <div class="details-info">
+        <h1 class="details-title">{{ movie()?.Title }}</h1>
+        <p class="meta">
+          <span>{{ movie()?.Year }}</span>
+          <span>{{ movie()?.Runtime | runtime }}</span>
+          <span>{{ movie()?.Genre }}</span>
+          <span>IMDb {{ movie()?.imdbRating }}</span>
+        </p>
+        <p class="cast" *ngIf="movie()?.Actors">
+          <span>Cast:</span> {{ movie()?.Actors }}
+        </p>
+        <p class="plot">{{ movie()?.Plot }}</p>
+        <div class="details-actions">
+          <button class="btn-primary" (click)="toggleFavorite()">
+            {{ isFav() ? '★ Remove from favorites' : '＋ Add to My List' }}
+          </button>
+        </div>
+        <div class="error" *ngIf="error()">{{ error() }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <loading-spinner></loading-spinner>
+</ng-template>
